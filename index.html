@@ -28,21 +28,32 @@
         ::selection { background-color: #0A0A0A; color: #FFFFFF; }
         .text-justified { text-align: justify; text-justify: inter-word; }
         
-        /* Interactive Museum Frame Viewport */
+        /* Premium Immersive Slide Viewer Frame */
         .museum-viewport {
             background: #121212;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-            border: 1px solid #222222;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-        .gallery-frame {
+        .slide-frame {
+            display: none;
             width: 100%;
             height: 100%;
-            border: none;
+            animation: slideFadeIn 0.4s ease-in-out;
+        }
+        .slide-frame.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body class="bg-[#FBFBFB] text-studioBlack font-sans antialiased tracking-wide">
 
+    <!-- NAVIGATION SYSTEM -->
     <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-neutral-100">
         <div class="max-w-7xl mx-auto px-6 md:px-12 h-24 flex justify-between items-center">
             <div class="flex flex-col">
@@ -62,15 +73,16 @@
         </div>
     </header>
 
+    <!-- HERO PRELUDE -->
     <section class="min-h-screen pt-32 flex flex-col justify-center items-center px-6 text-center bg-white relative overflow-hidden">
         <div class="max-w-4xl mx-auto z-10">
             <span class="text-[11px] font-bold tracking-[0.4em] text-studioMuted uppercase block mb-6">ARTIST PORTFOLIO</span>
             <h1 class="text-3xl md:text-5xl font-light tracking-[0.15em] uppercase leading-tight mb-8">
-                An exploration of colour and <span class="font-serif italic">abstracted forms</span>
+                An exploration of colour and <span class="font-serif italic">abstracted forms</span>[cite: 1]
             </h1>
             <div class="w-16 h-[1px] bg-studioBlack mx-auto mb-8"></div>
             <p class="text-xs md:text-sm text-studioGray tracking-widest uppercase max-w-3xl mx-auto leading-relaxed">
-                THE SURFACE SERVES TO DOCUMENT A LIVED FLOW &bull; PIGMENT ALLOWS THE BODY TO TRACE PRESENCE &bull; MOVEMENT MATERIALISES AS FORM &bull; COLOUR RESETS THE MOMENT
+                THE SURFACE SERVES TO DOCUMENT A LIVED FLOW &bull; PIGMENT ALLOWS THE BODY TO TRACE PRESENCE &bull; MOVEMENT MATERIALISES AS FORM &bull; COLOUR RESETS THE MOMENT[cite: 1]
             </p>
         </div>
         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-center">
@@ -81,6 +93,7 @@
         </div>
     </section>
 
+    <!-- ARTIST STATEMENT -->
     <section id="statement" class="py-32 px-6 md:px-12 bg-studioBlack text-white">
         <div class="max-w-5xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
@@ -90,49 +103,113 @@
                 </div>
                 <div class="lg:col-span-2 space-y-8 text-neutral-400 text-xs md:text-sm tracking-wide leading-relaxed font-light text-justified">
                     <p class="text-white text-sm md:text-base font-normal tracking-wide leading-relaxed">
-                        My name is Alton Ajay Mathew and I am an Indian artist based in Chennai, working within contemporary abstraction. My practice explores the dimensional and affective capacity of colour and form, using the painted surface as a site where colour accumulates, compresses and destabilises. Through metaboloid forms set within shifting frameworks, my work sustains an engagement with gesture, movement and memory, approaching abstraction as a mode of lived experience, adjuncted between pure formalism and emotion.
+                        My name is Alton Ajay Mathew (b. 2000) and I am an Indian artist based in Chennai, working within contemporary abstraction[cite: 1]. My practice explores the dimensional and affective capacity of colour and form, using the painted surface as a site where colour accumulates, compresses and destabilises[cite: 1]. Through metaboloid forms set within shifting frameworks, my work sustains an engagement with gesture, movement and memory, approaching abstraction as a mode of lived experience, adjuncted between pure formalism and emotion[cite: 1].
                     </p>
                     <div class="h-[1px] bg-neutral-800 my-4"></div>
                     <p>
-                        My practice investigates colour fields under tension, where the torque of the line activates the surface and sustains a continual negotiation. I begin with a charcoal-based 'automatist' underdrawing, developing the composition through successive overlays of contrast-heavy hues. Falcate forms emerge through contact and disarray, fraying into moments of chromatic stability. The surface becomes a charged field capable of recording bodily presence, where hesitation and resolve are forces towards the deliberate density that emerges.
+                        My practice investigates colour fields under tension, where the torque of the line activates the surface and sustains a continual negotiation[cite: 1]. I begin with a charcoal-based 'automatist' underdrawing, developing the composition through successive overlays of contrast-heavy hues[cite: 1]. Falcate forms emerge through contact and disarray, fraying into moments of chromatic stability[cite: 1]. The surface becomes a charged field capable of recording bodily presence, where hesitation and resolve are forces towards the deliberate density that emerges[cite: 1].
                     </p>
                     <p>
-                        Compositional structures act as tools to push and pull between containment and release. Lines function simultaneously as connective tissue and disruptive force, compressing space while revealing rhythmic pathways through the image. Colour is imbued with agency; it acts as a sealant of time and a carrier of memory. Repeated gestures leave residue, and each chromatic interaction tests the eye, unlocking a shifting and unstable reality sustained in a state of ludic restlessness.
+                        Compositional structures act as tools to push and pull between containment and release[cite: 1]. Lines function simultaneously as connective tissue and disruptive force, compressing space while revealing rhythmic pathways through the image[cite: 1]. Colour is imbued with agency; it acts as a sealant of time and a carrier of memory[cite: 1]. Repeated gestures leave residue, and each chromatic interaction tests the eye, unlocking a shifting and unstable reality sustained in a state of ludic restlessness[cite: 1].
                     </p>
                     <p>
-                        Situated in response to the contemporary Indian condition, my work reflects an awareness of how multiplicity and saturation generates visual flux. The paintings resist fixed resolution, holding space for ambiguity and transformation. Through this evolving, process-driven practice, I navigate the gestural trace of presence, allowing the depth of the personal experience to reverberate with and against my socio-cultural milieu.
+                        Situated in response to the contemporary Indian condition, my work reflects an awareness of how multiplicity and saturation generates visual flux[cite: 1]. The paintings resist fixed resolution, holding space for ambiguity and transformation[cite: 1]. Through this evolving, process-driven practice, I navigate the gestural trace of presence, allowing the depth of the personal experience to reverberate with and against my socio-cultural milieu[cite: 1].
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- INTERACTIVE IMAGES SLIDER -->
     <section id="catalogue" class="py-32 px-6 md:px-12 max-w-5xl mx-auto">
         <div class="mb-12 border-b border-neutral-200 pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div>
-                <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-2">02 // VISUAL PORTFOLIO EXHIBIT</span>
+                <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-2">02 // VISUAL EXHIBITION CATALOGUE</span>
                 <h2 class="text-2xl font-light tracking-widest uppercase">Works & Monograph Plates</h2>
             </div>
             <div class="text-xs font-mono text-studioMuted uppercase tracking-wider">
-                Interactive Canvas Framework
+                <span id="slide-index-counter">Plate 1 of 12</span>
             </div>
         </div>
 
-        <div class="w-full museum-viewport aspect-[4/3] md:aspect-[16/10] rounded-sm overflow-hidden relative">
-            <iframe 
-                src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/TheYajaNotla/altonajaymathewart/main/portfolio.pdf&embedded=true" 
-                class="gallery-frame"
-                allow="autoplay">
-            </iframe>
-        </div>
+        <!-- Layout Frame Window -->
+        <div class="w-full museum-viewport aspect-[4/3] md:aspect-[16/10] relative flex flex-col justify-between p-4 md:p-8 rounded-sm">
+            
+            <!-- Dynamic Images Engine -->
+            <div class="w-full h-full flex items-center justify-center overflow-hidden mb-4">
+                
+                <div class="slide-frame active" data-index="1">
+                    <img src="slides/Slide1.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Reminders of the Molt">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Reminders of the Molt, 2024 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
 
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-[11px] text-studioMuted tracking-wider uppercase font-mono">
-            <div>&bull; STUDIES IN CONSTRUCTED FLUX AND GRAPHIC DRIFT</div>
-            <div>&bull; STUDIES IN CHROMATIC RELATIONS AND ORGANIC FORM</div>
-            <div>&bull; STUDIES IN COMPRESSION AND LINE STRESS</div>
+                <div class="slide-frame" data-index="2">
+                    <img src="slides/Slide2.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Fatal Proposition I">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Fatal Proposition I, 2026 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="3">
+                    <img src="slides/Slide3.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Fatal Proposition II">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Fatal Proposition II, 2026 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="4">
+                    <img src="slides/Slide4.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="The Plaything">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">The Plaything, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="5">
+                    <img src="slides/Slide5.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="A Shape Listens">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">A Shape Listens, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="6">
+                    <img src="slides/Slide11.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Billowed Mind">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Billowed Mind, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="7">
+                    <img src="slides/Slide12.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Avataram">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Avataram, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="8">
+                    <img src="slides/Slide19.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Sealed Field">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Sealed Field, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="9">
+                    <img src="slides/Slide21.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Untitled Line Condition">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Untitled (Line Condition), 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="10">
+                    <img src="slides/Slide22.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Hold the Flow">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Hold the Flow, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="11">
+                    <img src="slides/Slide24.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="After the Torque">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">After the Torque, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+                <div class="slide-frame" data-index="12">
+                    <img src="slides/Slide25.JPG" class="max-h-[60vh] object-contain shadow-2xl" alt="Chromatic Curse">
+                    <div class="text-center mt-4 text-white font-mono text-[11px] tracking-widest uppercase">Chromatic Curse, 2025 &bull; Oil on Canvas[cite: 1]</div>
+                </div>
+
+            </div>
+
+            <!-- Custom Controls -->
+            <div class="flex justify-between items-center z-10 w-full bg-black/40 backdrop-blur-sm p-3 rounded-sm">
+                <button onclick="changeSlide(-1)" class="text-white text-xs tracking-widest uppercase font-bold hover:text-neutral-400 transition-colors px-5 py-2.5 bg-neutral-900/60 rounded-sm">&larr; Previous</button>
+                <div class="text-[9px] font-mono tracking-widest text-neutral-400 uppercase hidden sm:block">STUDIO CANVAS NAVIGATOR</div>
+                <button onclick="changeSlide(1)" class="text-white text-xs tracking-widest uppercase font-bold hover:text-neutral-400 transition-colors px-5 py-2.5 bg-neutral-900/60 rounded-sm">Next &rarr;</button>
+            </div>
         </div>
     </section>
 
+    <!-- BIOGRAPHY -->
     <section id="bio" class="py-32 px-6 md:px-12 bg-studioLight border-t border-b border-neutral-200">
         <div class="max-w-5xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
@@ -142,22 +219,23 @@
                 </div>
                 <div class="lg:col-span-2 space-y-6 text-studioGray text-xs md:text-sm tracking-wide leading-relaxed font-light text-justified">
                     <p class="text-studioBlack text-sm md:text-base font-normal">
-                        Alton Ajay Mathew is an emerging contemporary abstract artist whose current practice examines saturation, containment and chromatic tension within constructed systems. Working through charcoal-based underdrawings and successive overlays of high-contrast hues, his paintings investigate the resistance tethered between structure and emergence.
+                        Alton Ajay Mathew (b. 2000, Chennai, India) is an emerging contemporary abstract artist whose current practice examines saturation, containment and chromatic tension within constructed systems[cite: 1]. Working through charcoal-based underdrawings and successive overlays of high-contrast hues, his paintings investigate the resistance tethered between structure and emergence[cite: 1].
                     </p>
                     <p>
-                        Rooted in a process-driven methodology, his work approaches abstraction as a site of lived experience, where gesture accumulates as human residue and colour functions as a carrier of bodily memory. The surface becomes a charged field to examine the multiplicity of modern life and the tensions of negotiating an identity within its frameworks.
+                        Rooted in a process-driven methodology, his work approaches abstraction as a site of lived experience, where gesture accumulates as human residue and colour functions as a carrier of bodily memory[cite: 1]. The surface becomes a charged field to examine the multiplicity of modern life and the tensions of negotiating an identity within its frameworks[cite: 1].
                     </p>
                     <p class="border-l-2 border-studioBlack pl-6 my-6 text-studioBlack bg-white p-4 shadow-sm font-normal">
-                        Alton completed his medical degree from Poland in 2024, and brings an interdisciplinary perspective to his praxis, informed by a sensitivity to structural thinking and embodied awareness.
+                        Alton has completed his medical degree from Poland in 2024, and brings an interdisciplinary perspective to his praxis, informed by a sensitivity to structural thinking and embodied awareness[cite: 1].
                     </p>
                     <p>
-                        During this period, his early figurative and ceramics pieces were included in the 'Otwarta Wystawa' at the Book Art Museum, Łódź. He has since engaged regularly in locally held life drawing sessions in Poland, and taken part in community art education initiatives conducted by 'Fundacja Arternatywa'. He currently lives and works in the city of Chennai, India, maintaining an independent studio practice exploring painting with oil on canvas.
+                        During this period, his early figurative and ceramics pieces were included in the 'Otwarta Wystawa' at the Book Art Museum, Łódź (2019)[cite: 1]. He has since engaged regularly in locally held life drawing sessions in Poland, and taken part in community art education initiatives conducted by 'Fundacja Arternatywa'[cite: 1]. He currently lives and works in the city of Chennai, India, maintaining an independent studio practice exploring painting with oil on canvas[cite: 1].
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CURRICULUM VITAE -->
     <section id="cv" class="py-32 px-6 md:px-12 max-w-5xl mx-auto">
         <div class="mb-16 border-b border-neutral-200 pb-6">
             <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-2">04 // CHRONOLOGICAL LEDGER</span>
@@ -165,6 +243,7 @@
         </div>
 
         <div class="space-y-16">
+            <!-- Education -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-12">
                 <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Education</div>
                 <div class="md:col-span-3 space-y-6 text-xs md:text-sm">
@@ -173,38 +252,39 @@
                             <span>Doctor of Medicine (M.D)</span>
                             <span class="font-mono">2018 — 2024</span>
                         </div>
-                        <div class="text-studioGray mt-1">Medical University of Lodz, Poland &bull; 4.37/5.00 GPA</div>
+                        <div class="text-studioGray mt-1">Medical University of Lodz, Poland &bull; 4.37/5.00 GPA[cite: 1]</div>
                     </div>
                     <div class="border-b border-neutral-100 pb-4">
                         <div class="flex justify-between font-semibold tracking-wide text-neutral-900">
                             <span>International Baccalaureate (I.B. Diploma)</span>
                             <span class="font-mono">2016 — 2018</span>
                         </div>
-                        <div class="text-studioGray mt-1">M.Ct.M Chidambaram Chettyar International School, Chennai, India &bull; 33/45 Points</div>
+                        <div class="text-studioGray mt-1">M.Ct.M Chidambaram Chettyar International School, Chennai, India &bull; 33/45 Points[cite: 1]</div>
                     </div>
                     <div>
                         <div class="flex justify-between font-semibold tracking-wide text-neutral-900">
                             <span>GCSE Certificate</span>
                             <span class="font-mono">2011 — 2016</span>
                         </div>
-                        <div class="text-studioGray mt-1">St. Bonaventure's Catholic Comprehensive School, London, U.K &bull; 11 A*s (Art GCSE Credited with A*)</div>
+                        <div class="text-studioGray mt-1">St. Bonaventure's Catholic Comprehensive School, London, U.K &bull; 11 A*s (Art GCSE Credited with A*)[cite: 1]</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Experience -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-12 pt-8 border-t border-neutral-100">
-                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Professional Experience</div>
+                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Experience</div>
                 <div class="md:col-span-3 space-y-8 text-xs md:text-sm">
                     <div>
                         <div class="flex justify-between font-semibold text-neutral-900">
                             <span>English Tutor</span>
                             <span class="font-mono">2021 — 2024</span>
                         </div>
-                        <div class="text-studioMuted text-[10px] uppercase tracking-wider mt-0.5 font-mono">British Centre | Lloyd Woodley English Language School | Memory Studio | Lodz, Poland</div>
+                        <div class="text-studioMuted text-[10px] uppercase tracking-wider mt-0.5 font-mono">British Centre | Lloyd Woodley English Language School | Memory Studio | Lodz, Poland[cite: 1]</div>
                         <ul class="mt-3 space-y-1.5 text-studioGray font-light list-disc list-inside">
-                            <li>Designed and delivered structured curricula for A1–B2 learners in multilingual settings</li>
-                            <li>Facilitated one-on-one and group sessions emphasising dialogue, interpretation and articulation</li>
-                            <li>Worked with students from diverse cultural backgrounds, supporting language acquisition through contextual and visual methods</li>
+                            <li>Designed and delivered structured curricula for A1–B2 learners in multilingual settings[cite: 1]</li>
+                            <li>Facilitated one-on-one and group sessions emphasising dialogue, interpretation and articulation[cite: 1]</li>
+                            <li>Worked with students from diverse cultural backgrounds, supporting language acquisition through contextual and visual methods[cite: 1]</li>
                         </ul>
                     </div>
 
@@ -213,27 +293,29 @@
                             <span>Marketing Coordinator</span>
                             <span class="font-mono">2023</span>
                         </div>
-                        <div class="text-studioMuted text-[10px] uppercase tracking-wider mt-0.5 font-mono">Academy of Film, Art & Design | Lodz, Poland</div>
+                        <div class="text-studioMuted text-[10px] uppercase tracking-wider mt-0.5 font-mono">Academy of Film, Art & Design | Lodz, Poland[cite: 1]</div>
                         <ul class="mt-3 space-y-1.5 text-studioGray font-light list-disc list-inside">
-                            <li>Developed visual and written communication strategies for art and design education contexts</li>
-                            <li>Produced promotional material and coordinated outreach initiatives for international applicants</li>
-                            <li>Managed applicant communications and supported prospective students through portfolio-based admissions</li>
+                            <li>Developed visual and written communication strategies for art and design education contexts[cite: 1]</li>
+                            <li>Produced promotional material and coordinated outreach initiatives for international applicants[cite: 1]</li>
+                            <li>Managed applicant communications and supported prospective students through portfolio-based admissions[cite: 1]</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
+            <!-- History -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-12 pt-8 border-t border-neutral-100">
-                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Studio & Exposure</div>
+                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Studio Matrix</div>
                 <div class="md:col-span-3 space-y-4 text-xs md:text-sm text-studioGray font-light">
-                    <div><strong class="font-bold text-neutral-900">Studio Practice:</strong> Independent painting practice based in Chennai and Poland. Ongoing studio-led research in chromatic abstraction and process-based painting.</div>
-                    <div><strong class="font-bold text-neutral-900">International Exposure:</strong> Lived and worked in Poland engaging with cross-cultural educational and creative environments.</div>
-                    <div><strong class="font-bold text-neutral-900">Exhibitions:</strong> Exhibited at "Otwarta Wystawa 2020" in Lodz with figurative paintings and abstract sculptures.</div>
+                    <div><strong class="font-bold text-neutral-900">Studio Practice:</strong> Independent painting practice based in Chennai and Poland. Ongoing studio-led research in chromatic abstraction and process-based painting[cite: 1].</div>
+                    <div><strong class="font-bold text-neutral-900">International Exposure:</strong> Lived and worked in Poland (2018–2024) engaging with cross-cultural educational and creative environments[cite: 1].</div>
+                    <div><strong class="font-bold text-neutral-900">Exhibitions:</strong> Exhibited at "Otwarta Wystawa 2020" in Lodz with figurative paintings and abstract sculptures[cite: 1].</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- PRIVATE VIP CONNECTION VIEWING ROOM -->
     <section id="viewing-room" class="py-32 px-6 md:px-12 bg-studioBlack text-white">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-[10px] font-mono tracking-[0.5em] text-emerald-400 uppercase block mb-4">// PRIVATE COLLECTION ARCHIVE</span>
@@ -250,6 +332,7 @@
                 <p id="portal-error-node" class="text-rose-400 text-xs mt-3 tracking-wider hidden font-mono">Invalid code token. Please communicate directly with the studio matrix to request clearance.</p>
             </div>
 
+            <!-- Secure Inventory Ledger Table -->
             <div id="verified-inventory-matrix" class="hidden mt-12 text-left bg-neutral-950 border border-neutral-900 p-6 md:p-8 rounded-sm max-w-2xl mx-auto">
                 <p class="text-emerald-400 font-mono text-xs uppercase mb-6 tracking-widest">✓ Access Granted. Active Fine Art Inventory Values:</p>
                 <div class="space-y-4 text-xs font-mono text-neutral-300">
@@ -264,6 +347,7 @@
         </div>
     </section>
 
+    <!-- CONTACT FOOTER -->
     <section id="contact" class="py-24 bg-white text-center px-6">
         <div class="max-w-3xl mx-auto">
             <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-4">05 // STUDIO COMMUNICATIONS</span>
@@ -271,17 +355,17 @@
             
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-12">
                 <a href="mailto:altonajaymathew00@gmail.com" class="text-base tracking-widest font-light text-neutral-900 border-b border-neutral-200 hover:border-studioBlack pb-1 transition-all">
-                    altonajaymathew00@gmail.com
+                    altonajaymathew00@gmail.com[cite: 1]
                 </a>
                 <a href="tel:+916374997257" class="text-base tracking-widest font-light text-neutral-900 border-b border-neutral-200 hover:border-studioBlack pb-1 transition-all">
-                    +91 6374997257
+                    +91 6374997257[cite: 1]
                 </a>
             </div>
 
             <div class="max-w-md mx-auto text-center border-t border-neutral-100 pt-8">
                 <p class="text-[11px] text-studioMuted uppercase tracking-widest leading-loose">
                     No.1 First Cross Street, RV Nagar, Anna Nagar East,<br>
-                    Chennai, India, 600102
+                    Chennai, India, 600102[cite: 1]
                 </p>
             </div>
 
@@ -292,6 +376,20 @@
     </section>
 
     <script>
+        let currentIdx = 1;
+        const totalSlidesCount = 12;
+
+        function changeSlide(direction) {
+            document.querySelector(`.slide-frame[data-index="${currentIdx}"]`).classList.remove('active');
+            
+            currentIdx += direction;
+            if (currentIdx > totalSlidesCount) { currentIdx = 1; }
+            if (currentIdx < 1) { currentIdx = totalSlidesCount; }
+
+            document.querySelector(`.slide-frame[data-index="${currentIdx}"]`).classList.add('active');
+            document.getElementById('slide-index-counter').innerText = `Plate ${currentIdx} of ${totalSlidesCount}`;
+        }
+
         function unlockPortal() {
             const token = document.getElementById('keyframe-token').value.trim();
             if (token.toUpperCase() === 'STUDIO2026') {
