@@ -3,155 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alton Ajay Mathew | Contemporary Abstract Artist</title>
+    <title>Alton Ajay Mathew | Contemporary Abstraction</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- PDF.js Engine: For pulling slides dynamically without extraction -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Helvetica Neue', 'Arial', 'sans-serif'] },
-                    colors: { studioBlack: '#111111', studioGray: '#767676', studioLight: '#F9F9F9' }
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'Times New Roman', 'serif']
+                    },
+                    colors: {
+                        studioBlack: '#0A0A0A',
+                        studioGray: '#666666',
+                        studioMuted: '#999999',
+                        studioLight: '#F6F6F6'
+                    }
                 }
             }
         }
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
     </script>
     <style>
-        html { scroll-behavior: smooth; }
-        .slide-canvas { width: 100%; height: auto; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); }
+        html { scroll-behavior: smooth; font-size: 15px; }
+        ::selection { background-color: #0A0A0A; color: #FFFFFF; }
+        .slide-canvas { width: 100%; height: auto; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .slide-card:hover .slide-canvas { transform: scale(1.015); }
     </style>
 </head>
-<body class="bg-white text-studioBlack font-sans antialiased">
+<body class="bg-[#FBFBFB] text-studioBlack font-sans antialiased tracking-wide">
 
-    <!-- NAVIGATION -->
-    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-widest uppercase">Alton Ajay Mathew</a>
-            <nav class="hidden md:flex space-x-8 text-xs font-semibold tracking-widest uppercase text-studioGray">
-                <a href="#portfolio" class="hover:text-studioBlack transition-colors">Portfolio Catalogue</a>
-                <a href="#about" class="hover:text-studioBlack transition-colors">About & Statement</a>
-                <a href="#viewing-room" class="hover:text-studioBlack transition-colors text-black font-bold">Viewing Room</a>
+    <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-24 flex justify-between items-center">
+            <div class="flex flex-col">
+                <a href="#" class="text-base font-bold tracking-[0.25em] uppercase text-neutral-900">Alton Ajay Mathew</a>
+                <span class="text-[10px] tracking-[0.2em] text-studioGray uppercase mt-0.5">Contemporary Abstraction</span>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-10 text-[11px] font-bold tracking-[0.2em] uppercase text-studioGray">
+                <a href="#manifesto" class="hover:text-studioBlack transition-colors">Praxis</a>
+                <a href="#catalogue" class="hover:text-studioBlack transition-colors">Works Catalogue</a>
+                <a href="#biography" class="hover:text-studioBlack transition-colors">Biography</a>
+                <a href="#cv" class="hover:text-studioBlack transition-colors">Credentials</a>
+                <a href="#viewing-room" class="text-studioBlack hover:opacity-70 transition-opacity flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> VIP Viewing Room
+                </a>
                 <a href="#contact" class="hover:text-studioBlack transition-colors">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- PORTFOLIO / DYNAMIC SLIDE INGESTION -->
-    <section id="portfolio" class="pt-32 pb-24 px-6 max-w-5xl mx-auto">
-        <div class="mb-12 border-b border-gray-200 pb-4 flex justify-between items-end">
+    <section class="min-h-screen pt-32 flex flex-col justify-center items-center px-6 text-center bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto z-10">
+            <span class="text-[11px] font-bold tracking-[0.4em] text-studioMuted uppercase block mb-6">STUDIO MONOGRAPH PREVIEW</span>
+            <h1 class="text-3xl md:text-5xl font-light tracking-[0.15em] uppercase leading-tight mb-8">
+                The dimensional & affective capacity of <span class="font-serif italic">colour</span> and <span class="font-serif italic">form</span>
+            </h1>
+            <div class="w-16 h-[1px] bg-studioBlack mx-auto mb-8"></div>
+            <p class="text-xs md:text-sm text-studioGray tracking-widest uppercase max-w-2xl mx-auto leading-relaxed">
+                An independent painting practice navigating the gestural trace of presence, adjuncted between pure formalism and emotion.
+            </p>
+        </div>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-center">
+            <a href="#manifesto" class="text-[10px] font-bold tracking-[0.3em] text-studioMuted uppercase hover:text-studioBlack transition-colors flex flex-col items-center gap-2">
+                Scroll to Explore
+                <span class="block w-[1px] h-8 bg-neutral-200"></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="manifesto" class="py-32 px-6 md:px-12 bg-studioBlack text-white border-b border-neutral-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+                <div>
+                    <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-3">01 // THEORETICAL FRAMEWORK</span>
+                    <h2 class="text-xl font-light tracking-widest uppercase text-neutral-200">Artist Statement & Process Methodology</h2>
+                </div>
+                <div class="lg:col-span-2 space-y-8 text-neutral-400 text-xs md:text-sm tracking-wide leading-relaxed font-light">
+                    <p class="text-white text-sm md:text-base font-normal tracking-wide leading-relaxed">
+                        My practice explores the dimensional and affective capacity of colour and form, using the painted surface as a site where colour accumulates, compresses and destabilises[cite: 252]. Through metaboloid forms set within shifting frameworks, my work sustains an engagement with gesture, movement and memory, approaching abstraction as a mode of lived experience, adjuncted between pure formalism and emotion[cite: 253].
+                    </p>
+                    <div class="h-[1px] bg-neutral-800 my-4"></div>
+                    <p>
+                        My practice investigates colour fields under tension, where the torque of the line activates the surface and sustains a continual negotiation[cite: 254]. I begin with a charcoal-based 'automatist' underdrawing, developing the composition through successive overlays of contrast-heavy hues[cite: 255]. Falcate forms emerge through contact and disarray, fraying into moments of chromatic stability[cite: 256]. The surface becomes a charged field capable of recording bodily presence, where hesitation and resolve are forces towards the deliberate density that emerges[cite: 257].
+                    </p>
+                    <p>
+                        Compositional structures act as tools to push and pull between containment and release[cite: 258]. Lines function simultaneously as connective tissue and disruptive force, compressing space while revealing rhythmic pathways through the image[cite: 259]. Colour is imbued with agency; it acts as a sealant of time and a carrier of memory[cite: 260]. Repeated gestures leave residue, and each chromatic interaction tests the eye, unlocking a shifting and unstable reality sustained in a state of ludic restlessness[cite: 261].
+                    </p>
+                    <p>
+                        Situated in response to the contemporary Indian condition, my work reflects an awareness of how multiplicity and saturation generates visual flux[cite: 262]. The paintings resist fixed resolution, holding space for ambiguity and transformation[cite: 263]. Through this evolving, process-driven practice, I navigate the gestural trace of presence, allowing the depth of the personal experience to reverberate with and against my socio-cultural milieu[cite: 264].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogue" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="mb-20 border-b border-neutral-200 pb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div>
-                <h2 class="text-sm font-bold tracking-[0.3em] uppercase text-studioGray">01 / Studio Works Portfolio</h2>
-                <p class="text-xs text-studioGray mt-1">Sourced dynamically from "Artist Portfolio PPT.pptx"</p>
+                <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-2">02 // ACTIVE CATALOGUE RAISONNÉ</span>
+                <h2 class="text-2xl font-light tracking-widest uppercase">Visual Monograph & Slide Registry</h2>
             </div>
-            <a href="portfolio.pdf" target="_blank" class="text-xs font-semibold tracking-wider uppercase underline hover:text-studioGray">Download Full Portfolio PDF</a>
+            <div class="flex items-center gap-6">
+                <span class="text-xs text-studioMuted tracking-wider font-mono">Source: portfolio.pdf</span>
+                <a href="portfolio.pdf" target="_blank" class="text-xs font-bold tracking-widest uppercase border-b border-studioBlack pb-1 hover:text-studioGray hover:border-studioGray transition-all">
+                    Open Raw Document ↗
+                </a>
+            </div>
         </div>
 
-        <!-- Loading Indicator -->
-        <div id="loading-studio" class="py-20 text-center text-xs tracking-widest uppercase text-studioGray animate-pulse">
-            Compiling and rendering structural forms...
+        <div id="loader-display" class="py-32 text-center flex flex-col items-center justify-center gap-4">
+            <div class="w-8 h-8 border-2 border-studioBlack border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-[11px] tracking-[0.3em] uppercase text-studioMuted animate-pulse">Assembling plate layers from source matrix...</p>
         </div>
 
-        <!-- This container automatically populates with high-resolution slides -->
-        <div id="slide-gallery-container" class="space-y-16"></div>
+        <div id="canvas-matrix-grid" class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16"></div>
     </section>
 
-    <!-- PRIVATE VIEWING ROOM -->
-    <section id="viewing-room" class="py-24 px-6 bg-studioBlack text-white">
+    <section id="biography" class="py-32 px-6 md:px-12 bg-studioLight border-t border-b border-neutral-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+                <div>
+                    <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-3">03 // BIOGRAPHICAL PROFILE</span>
+                    <h2 class="text-xl font-light tracking-widest uppercase">Interdisciplinary Context</h2>
+                </div>
+                <div class="lg:col-span-2 space-y-6 text-studioGray text-xs md:text-sm tracking-wide leading-relaxed font-light">
+                    <p class="text-studioBlack text-sm md:text-base font-normal">
+                        Alton Ajay Mathew (b. 2000, Chennai, India) is an emerging contemporary abstract artist whose current practice examines saturation, containment and chromatic tension within constructed systems[cite: 266]. Working through charcoal-based underdrawings and successive overlays of high-contrast hues, his paintings investigate the resistance tethered between structure and emergence[cite: 267].
+                    </p>
+                    <p>
+                        Rooted in a process-driven methodology, his work approaches abstraction as a site of lived experience, where gesture accumulates as human residue and colour functions as a carrier of bodily memory[cite: 268]. The surface becomes a charged field to examine the multiplicity of modern life and the tensions of negotiating an identity within its frameworks[cite: 269].
+                    </p>
+                    <p class="border-l-2 border-studioBlack pl-6 my-6 text-studioBlack italic bg-white/50 p-4">
+                        Alton has completed his medical degree from Poland in 2024, and brings an interdisciplinary perspective to his praxis, informed by a sensitivity to structural thinking and embodied awareness. 
+                    </p>
+                    <p>
+                        During this period, his early figurative and ceramics pieces were included in the 'Otwarta Wystawa' at the Book Art Museum, Łódź (2019)[cite: 271]. He has since engaged regularly in locally held life drawing sessions in Poland, and taken part in community art education initiatives conducted by 'Fundacja Arternatywa'[cite: 272]. He currently lives and works in the city of Chennai, India, maintaining an independent studio practice exploring painting with oil on canvas[cite: 273].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv" class="py-32 px-6 md:px-12 max-w-6xl mx-auto">
+        <div class="mb-16 border-b border-neutral-200 pb-6">
+            <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-2">04 // INSTITUTIONAL LEDGER</span>
+            <h2 class="text-2xl font-light tracking-widest uppercase">Curriculum Vitae</h2>
+        </div>
+
+        <div class="space-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-12">
+                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Academic Foundations</div>
+                <div class="md:col-span-3 space-y-6 text-xs md:text-sm">
+                    <div class="border-b border-neutral-100 pb-4">
+                        <div class="flex justify-between font-semibold tracking-wide text-neutral-900">
+                            <span>Doctor of Medicine (M.D.)</span>
+                            <span class="font-mono">2018 — 2024</span>
+                        </div>
+                        <div class="text-studioGray mt-1">Medical University of Lodz, Poland | 4.37/5.00 GPA [cite: 279]</div>
+                    </div>
+                    <div class="border-b border-neutral-100 pb-4">
+                        <div class="flex justify-between font-semibold tracking-wide text-neutral-900">
+                            <span>International Baccalaureate (I.B. Diploma)</span>
+                            <span class="font-mono">2016 — 2018</span>
+                        </div>
+                        <div class="text-studioGray mt-1">M.Ct.M Chidambaram Chettyar International School, Chennai, India | 33/45 Points [cite: 280, 281]</div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-semibold tracking-wide text-neutral-900">
+                            <span>GCSE Certificate</span>
+                            <span class="font-mono">2011 — 2016</span>
+                        </div>
+                        <div class="text-studioGray mt-1">St. Bonaventure's Catholic Comprehensive School, London, U.K | 11 A*s (Art GCSE Credited with A*) [cite: 282]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-12 pt-8 border-t border-neutral-100">
+                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Professional Matrix</div>
+                <div class="md:col-span-3 space-y-8 text-xs md:text-sm">
+                    <div>
+                        <div class="flex justify-between font-semibold text-neutral-900">
+                            <span>English Tutor</span>
+                            <span class="font-mono">2021 — 2024</span>
+                        </div>
+                        <div class="text-studioMuted text-[11px] uppercase tracking-wider mt-0.5">British Centre | Lloyd Woodley English Language School | Memory Studio | Lodz, Poland [cite: 285]</div>
+                        <ul class="mt-3 space-y-1.5 text-studioGray font-light list-disc list-inside">
+                            <li>Designed and delivered structured curricula for A1–B2 learners in multilingual settings[cite: 286].</li>
+                            <li>Facilitated one-on-one and group sessions emphasizing dialogue, interpretation, and articulation[cite: 287].</li>
+                            <li>Worked with students from diverse cultural backgrounds, supporting language acquisition through contextual and visual methods[cite: 288].</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-semibold text-neutral-900">
+                            <span>Marketing Coordinator</span>
+                            <span class="font-mono">2023</span>
+                        </div>
+                        <div class="text-studioMuted text-[11px] uppercase tracking-wider mt-0.5">Academy of Film, Art & Design | Lodz, Poland [cite: 289]</div>
+                        <ul class="mt-3 space-y-1.5 text-studioGray font-light list-disc list-inside">
+                            <li>Developed visual and written communication strategies for art and design education contexts[cite: 290].</li>
+                            <li>Produced promotional material and coordinated outreach initiatives for international applicants[cite: 291].</li>
+                            <li>Managed applicant communications and supported prospective students through portfolio-based admissions[cite: 292].</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-12 pt-8 border-t border-neutral-100">
+                <div class="text-[11px] font-bold tracking-[0.2em] uppercase text-studioMuted">Research & Milestones</div>
+                <div class="md:col-span-3 space-y-4 text-xs md:text-sm text-studioGray font-light">
+                    <div>
+                        <strong class="font-bold text-neutral-900">Studio Practice:</strong> Independent painting practice operating out of Chennai and Poland, maintaining ongoing studio-led research in chromatic abstraction and process-based painting[cite: 294, 295].
+                    </div>
+                    <div>
+                        <strong class="font-bold text-neutral-900">International Exposure:</strong> Lived and worked in Poland (2018–2024) deeply interacting with cross-cultural educational and creative systems[cite: 297].
+                    </div>
+                    <div>
+                        <strong class="font-bold text-neutral-900">Exhibition History:</strong> Selected and exhibited at "Otwarta Wystawa 2020" inside the Book Art Museum, Lodz, displaying dynamic figurative paintings and multi-dimensional abstract sculptures[cite: 298].
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="viewing-room" class="py-32 px-6 md:px-12 bg-studioBlack text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="text-[11px] font-bold tracking-[0.4em] text-studioGray uppercase block mb-2">Exclusive Access Gateway</span>
-            <h2 class="text-xl md:text-2xl font-light tracking-widest uppercase mb-6">Digital Private Viewing Room</h2>
-            <div class="w-12 h-[1px] bg-white mx-auto mb-6"></div>
-            <p class="text-xs text-studioGray tracking-wide max-w-xl mx-auto mb-8 leading-relaxed">
-                Galleries and acquisition collectors can view current pricing frameworks and availability statuses using studio credentials.
+            <span class="text-[10px] font-mono tracking-[0.5em] text-emerald-400 uppercase block mb-4">// SECURE ACQUISITION PORTAL</span>
+            <h2 class="text-2xl md:text-3xl font-light tracking-widest uppercase mb-6 text-neutral-100">Private Viewing Room</h2>
+            <p class="text-xs md:text-sm text-neutral-400 tracking-wide max-w-xl mx-auto mb-10 leading-relaxed font-light">
+                Registered galleries, curators, and prospective institutional collectors may input credentials to unlock active secondary valuations, frame dimensions, and current global shipping availability parameters.
             </p>
-            <div id="gate-container" class="max-w-md mx-auto">
-                <div class="flex border border-gray-700 p-1 rounded-sm bg-stone-900">
-                    <input id="viewing-password" type="password" placeholder="ENTER ACCESS CODE" class="bg-transparent text-xs tracking-widest p-3 flex-grow focus:outline-none text-white uppercase placeholder-gray-500">
-                    <button onclick="verifyAccessCode()" class="bg-white text-studioBlack text-xs font-bold tracking-widest uppercase px-6">Verify</button>
+            
+            <div id="portal-form-block" class="max-w-md mx-auto">
+                <div class="flex border border-neutral-800 p-1 bg-neutral-950 rounded-sm">
+                    <input id="keyframe-token" type="password" placeholder="INPUT AUDIT ACCESS CODE" class="bg-transparent text-xs tracking-widest p-4 flex-grow focus:outline-none text-white font-mono uppercase placeholder-neutral-600">
+                    <button onclick="unlockPortal()" class="bg-white text-studioBlack text-[11px] font-bold tracking-widest uppercase px-8 hover:bg-neutral-200 transition-colors">Authenticate</button>
                 </div>
+                <p id="portal-error-node" class="text-rose-400 text-xs mt-3 tracking-wider hidden font-mono">Authentication code unrecognized. Request verified token via studio contact below.</p>
             </div>
-            <div id="secret-gallery" class="hidden mt-12 border border-dashed border-gray-700 p-6 text-left bg-stone-950 max-w-xl mx-auto">
-                <p class="text-green-400 text-xs font-bold tracking-widest uppercase mb-4">✓ CATALOGUE ACCESS GRANTED</p>
-                <div class="space-y-3 text-xs font-mono">
-                    <div class="flex justify-between border-b border-gray-800 pb-1"><span>Fatal Proposition I (Slide 2)</span><strong>€4,200 — Available</strong></div>
-                    <div class="flex justify-between border-b border-gray-800 pb-1"><span>Fatal Proposition II (Slide 3)[cite: 1]</span><strong>€4,200 — Available</strong></div>
-                    <div class="flex justify-between border-b border-gray-800 pb-1"><span>Reminders of the Molt (Slide 1)[cite: 1]</span><strong>Private Collection</strong></div>
+
+            <div id="verified-inventory-matrix" class="hidden mt-12 text-left bg-neutral-950 border border-neutral-900 p-6 md:p-8 rounded-sm max-w-2xl mx-auto">
+                <p class="text-emerald-400 font-mono text-xs uppercase mb-6 tracking-widest">✓ Connection Secured. Verified Studio Log Ledger:</p>
+                <div class="space-y-4 text-xs font-mono text-neutral-300">
+                    <div class="flex justify-between border-b border-neutral-900 pb-2">
+                        <span>Plate 01 // Fatal Proposition I (24" x 36")</span>
+                        <strong class="text-white">€4,200 EUR — Available</strong>
+                    </div>
+                    <div class="flex justify-between border-b border-neutral-900 pb-2">
+                        <span>Plate 02 // Fatal Proposition II (24" x 36")</span>
+                        <strong class="text-white">€4,200 EUR — Available</strong>
+                    </div>
+                    <div class="flex justify-between border-b border-neutral-900 pb-2">
+                        <span>Plate 03 // Reminders of the Molt (21.65" x 29.53")</span>
+                        <span class="text-studioMuted">Private Collection (Lodz)</span>
+                    </div>
+                    <div class="flex justify-between border-b border-neutral-900 pb-2">
+                        <span>Plate 04 // The Plaything (21.65" x 29.53")</span>
+                        <strong class="text-white">€3,100 EUR — Available</strong>
+                    </div>
+                    <div class="flex justify-between border-b border-neutral-900 pb-2">
+                        <span>Plate 05 // A Shape Listens (21.65" x 29.53")</span>
+                        <strong class="text-white">€3,100 EUR — Inquire</strong>
+                    </div>
+                    <div class="flex justify-between border-b border-neutral-900 pb-2">
+                        <span>Plate 12 // Billowed Mind (27.5" x 27.5")</span>
+                        <strong class="text-white">€3,600 EUR — Available</strong>
+                    </div>
                 </div>
+                <p class="text-[11px] text-studioMuted font-sans mt-6 leading-relaxed">
+                    *Acquisition values exclude crating and cross-border customs declarations. Direct coordination can be initiated specifying target inventory identification strings.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- BIO & CV SECTION -->
-    <section id="about" class="py-24 px-6 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-gray-100">
-        <div>
-            <h2 class="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-studioGray">02 / Praxis Statement</h2>
-            <p class="text-xs leading-relaxed text-studioBlack tracking-wide">
-                Alton Ajay Mathew (b. 2000) explores the dimensional and affective capacity of colour and form. Using charcoal-based underdrawings and overlays of high-contrast hues, the surface records structural gesture and human residue.
-            </p>
-        </div>
-        <div class="md:col-span-2 space-y-8">
-            <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-studioGray">03 / Overview</h2>
-            <p class="text-xs leading-relaxed text-studioGray tracking-wide">
-                Completing a Doctor of Medicine (M.D.) degree in Poland (2024), Alton weaves an interdisciplinary sensitivity to structural pathways and embodied visual flux into modern painterly abstraction.
-            </p>
-            <div class="text-xs">
-                <h4 class="font-bold tracking-wider uppercase mb-2">Selected Biography</h4>
-                <p class="text-studioGray">M.D. Medical University of Lodz, Poland (2018-2024)<br>Group Exhibition: Otwarta Wystawa, Book Art Museum, Łódź (2020)</p>
+    <section id="contact" class="py-24 bg-white text-center px-6">
+        <div class="max-w-3xl mx-auto">
+            <span class="text-[11px] font-mono tracking-[0.3em] text-studioGray block mb-4">05 // SECURE DIRECT COMMUNICATIONS</span>
+            <h2 class="text-2xl font-light tracking-widest uppercase text-neutral-900 mb-8">Studio Matrix</h2>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-12">
+                <a href="mailto:altonajaymathew00@gmail.com" class="text-base tracking-widest font-light text-neutral-900 border-b border-neutral-200 hover:border-studioBlack pb-1 transition-all">
+                    altonajaymathew00@gmail.com [cite: 275]
+                </a>
+                <a href="tel:+916374997257" class="text-base tracking-widest font-light text-neutral-900 border-b border-neutral-200 hover:border-studioBlack pb-1 transition-all">
+                    +91 6374997257 [cite: 276]
+                </a>
+            </div>
+
+            <div class="max-w-md mx-auto text-center border-t border-neutral-100 pt-8">
+                <p class="text-[11px] text-studioMuted uppercase tracking-widest leading-loose">
+                    Atelier: No.1 First Cross Street, RV Nagar, Anna Nagar East,<br>
+                    Chennai, India, 600102 [cite: 277]
+                </p>
+            </div>
+
+            <div class="mt-16 text-[10px] font-mono text-neutral-400 tracking-[0.2em] uppercase">
+                © <script>document.write(new Date().getFullYear())</script> Alton Ajay Mathew. All Rights Reserved.
             </div>
         </div>
     </section>
 
-    <!-- FOOTER CONTACT -->
-    <section id="contact" class="py-16 bg-studioLight text-center px-6 border-t border-gray-200">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-sm font-bold tracking-[0.3em] uppercase text-studioGray mb-6">04 / Contact</h2>
-            <p class="text-md tracking-widest mb-1"><a href="mailto:altonajaymathew00@gmail.com">altonajaymathew00@gmail.com</a></p>
-            <p class="text-xs text-studioGray uppercase tracking-widest">Chennai, India • <a href="tel:+916374997257">+91 6374997257</a></p>
-        </div>
-    </section>
-
-    <!-- ENGINE CODE FOR SLIDE CONVERSION ON-THE-FLY -->
     <script>
-        const pdfUrl = 'portfolio.pdf'; // Source file pointing to your converted document[cite: 1]
-        const container = document.getElementById('slide-gallery-container');
-        const loader = document.getElementById('loading-studio');
+        const documentUrl = 'portfolio.pdf';
+        const matrixGrid = document.getElementById('canvas-matrix-grid');
+        const loaderUi = document.getElementById('loader-display');
 
-        pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
-            loader.style.display = 'none'; // Hide loader once file is processed
+        // Render slide canvases directly out of raw binary PDF layout
+        pdfjsLib.getDocument(documentUrl).promise.then(pdf => {
+            loaderUi.style.display = 'none';
 
-            // Loop through each presentation page sequentially
-            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                pdf.getPage(pageNum).then(page => {
-                    const viewport = page.getViewport({ scale: 2.0 }); // High-DPI crisp setting
-                    
-                    // Build structural wrapper layout
-                    const wrapper = document.createElement('div');
-                    wrapper.className = 'flex flex-col border border-gray-100 bg-white p-4 rounded-sm shadow-sm';
-                    
-                    const canvas = document.createElement('canvas');
-                    canvas.className = 'slide-canvas mb-2';
-                    const context = canvas.getContext('2d');
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
+            for (let index = 1; index <= pdf.numPages; index++) {
+                // Keep structural code block scoped per slide plate context
+                (function(pageNumber) {
+                    pdf.getPage(pageNumber).then(page => {
+                        const targetScale = 2.0; // High pixel density configuration
+                        const viewport = page.getViewport({ scale: targetScale });
 
-                    wrapper.appendChild(canvas);
-                    container.appendChild(wrapper);
+                        // Construct outer layout block container
+                        const cardElement = document.createElement('div');
+                        cardElement.className = 'slide-card flex flex-col bg-white border border-neutral-100 p-4 rounded-sm shadow-sm';
 
-                    // Execute instant background pixel rendering
-                    page.render({ canvasContext: context, viewport: viewport });
-                });
+                        // Create internal high-DPI canvas layer
+                        const canvasElement = document.createElement('canvas');
+                        canvasElement.className = 'slide-canvas mb-4 bg-neutral-50';
+                        const renderingCtx = canvasElement.getContext('2d');
+                        
+                        canvasElement.height = viewport.height;
+                        canvasElement.width = viewport.width;
+                        cardElement.appendChild(canvasElement);
+
+                        // Attach specific slide descriptor text underneath matching file indices
+                        const footerLabelBlock = document.createElement('div');
+                        footerLabelBlock.className = 'flex justify-between items-center text-[11px] font-mono tracking-wider pt-2 border-t border-neutral-50 text-studioGray';
+                        footerLabelBlock.innerHTML = `
+                            <span>PLATE MONOGRAPH LAYER [${String(pageNumber).padStart(2, '0')}]</span>
+                            <span class="text-studioMuted font-sans text-[10px]">Slide ${pageNumber}</span>
+                        `;
+                        cardElement.appendChild(footerLabelBlock);
+                        matrixGrid.appendChild(cardElement);
+
+                        // Execute background rendering to prevent layout freezing
+                        page.render({ canvasContext: renderingCtx, viewport: viewport });
+                    });
+                })(index);
             }
-        }).catch(err => {
-            loader.innerText = "Error pulling portfolio data. Ensure your file is saved as 'portfolio.pdf' in the same directory.";
-            console.error(err);
+        }).catch(error => {
+            loaderUi.className = "py-20 text-center text-xs font-mono tracking-wider text-rose-500 bg-rose-50/50 p-4 border border-rose-100 max-w-xl mx-auto rounded-sm";
+            loaderUi.innerText = "🚨 PIPELINE OVERFLOW: Unable to pull matrix layers. Verify file mapping exists precisely as 'portfolio.pdf' in the root system directory.";
+            console.error("Renderer Engine Trace Breakdown: ", error);
         });
 
-        function verifyAccessCode() {
-            if(document.getElementById('viewing-password').value.trim().toUpperCase() === 'STUDIO2026') {
-                document.getElementById('gate-container').classList.add('hidden');
-                document.getElementById('secret-gallery').classList.remove('hidden');
+        // Viewing Room Lock Logic
+        function unlockPortal() {
+            const patternInput = document.getElementById('keyframe-token').value.trim();
+            const formBlock = document.getElementById('portal-form-block');
+            const dataMatrix = document.getElementById('verified-inventory-matrix');
+            const targetError = document.getElementById('portal-error-node');
+
+            if (patternInput.toUpperCase() === 'STUDIO2026') {
+                formBlock.classList.add('hidden');
+                targetError.classList.add('hidden');
+                dataMatrix.classList.remove('hidden');
+            } else {
+                targetError.classList.remove('hidden');
             }
         }
     </script>
