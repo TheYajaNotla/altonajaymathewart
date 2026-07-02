@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alton Ajay Mathew | Contemporary Abstract Artist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- PDF.js Engine: For pulling slides dynamically without extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Helvetica Neue', 'Arial', 'sans-serif'] },
+                    colors: { studioBlack: '#111111', studioGray: '#767676', studioLight: '#F9F9F9' }
+                }
+            }
+        }
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .slide-canvas { width: 100%; height: auto; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); }
+    </style>
+</head>
+<body class="bg-white text-studioBlack font-sans antialiased">
+
+    <!-- NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-widest uppercase">Alton Ajay Mathew</a>
+            <nav class="hidden md:flex space-x-8 text-xs font-semibold tracking-widest uppercase text-studioGray">
+                <a href="#portfolio" class="hover:text-studioBlack transition-colors">Portfolio Catalogue</a>
+                <a href="#about" class="hover:text-studioBlack transition-colors">About & Statement</a>
+                <a href="#viewing-room" class="hover:text-studioBlack transition-colors text-black font-bold">Viewing Room</a>
+                <a href="#contact" class="hover:text-studioBlack transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PORTFOLIO / DYNAMIC SLIDE INGESTION -->
+    <section id="portfolio" class="pt-32 pb-24 px-6 max-w-5xl mx-auto">
+        <div class="mb-12 border-b border-gray-200 pb-4 flex justify-between items-end">
+            <div>
+                <h2 class="text-sm font-bold tracking-[0.3em] uppercase text-studioGray">01 / Studio Works Portfolio</h2>
+                <p class="text-xs text-studioGray mt-1">Sourced dynamically from "Artist Portfolio PPT.pptx"</p>
+            </div>
+            <a href="portfolio.pdf" target="_blank" class="text-xs font-semibold tracking-wider uppercase underline hover:text-studioGray">Download Full Portfolio PDF</a>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-studio" class="py-20 text-center text-xs tracking-widest uppercase text-studioGray animate-pulse">
+            Compiling and rendering structural forms...
+        </div>
+
+        <!-- This container automatically populates with high-resolution slides -->
+        <div id="slide-gallery-container" class="space-y-16"></div>
+    </section>
+
+    <!-- PRIVATE VIEWING ROOM -->
+    <section id="viewing-room" class="py-24 px-6 bg-studioBlack text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-[11px] font-bold tracking-[0.4em] text-studioGray uppercase block mb-2">Exclusive Access Gateway</span>
+            <h2 class="text-xl md:text-2xl font-light tracking-widest uppercase mb-6">Digital Private Viewing Room</h2>
+            <div class="w-12 h-[1px] bg-white mx-auto mb-6"></div>
+            <p class="text-xs text-studioGray tracking-wide max-w-xl mx-auto mb-8 leading-relaxed">
+                Galleries and acquisition collectors can view current pricing frameworks and availability statuses using studio credentials.
+            </p>
+            <div id="gate-container" class="max-w-md mx-auto">
+                <div class="flex border border-gray-700 p-1 rounded-sm bg-stone-900">
+                    <input id="viewing-password" type="password" placeholder="ENTER ACCESS CODE" class="bg-transparent text-xs tracking-widest p-3 flex-grow focus:outline-none text-white uppercase placeholder-gray-500">
+                    <button onclick="verifyAccessCode()" class="bg-white text-studioBlack text-xs font-bold tracking-widest uppercase px-6">Verify</button>
+                </div>
+            </div>
+            <div id="secret-gallery" class="hidden mt-12 border border-dashed border-gray-700 p-6 text-left bg-stone-950 max-w-xl mx-auto">
+                <p class="text-green-400 text-xs font-bold tracking-widest uppercase mb-4">✓ CATALOGUE ACCESS GRANTED</p>
+                <div class="space-y-3 text-xs font-mono">
+                    <div class="flex justify-between border-b border-gray-800 pb-1"><span>Fatal Proposition I (Slide 2)</span><strong>€4,200 — Available</strong></div>
+                    <div class="flex justify-between border-b border-gray-800 pb-1"><span>Fatal Proposition II (Slide 3)[cite: 1]</span><strong>€4,200 — Available</strong></div>
+                    <div class="flex justify-between border-b border-gray-800 pb-1"><span>Reminders of the Molt (Slide 1)[cite: 1]</span><strong>Private Collection</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIO & CV SECTION -->
+    <section id="about" class="py-24 px-6 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-gray-100">
+        <div>
+            <h2 class="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-studioGray">02 / Praxis Statement</h2>
+            <p class="text-xs leading-relaxed text-studioBlack tracking-wide">
+                Alton Ajay Mathew (b. 2000) explores the dimensional and affective capacity of colour and form. Using charcoal-based underdrawings and overlays of high-contrast hues, the surface records structural gesture and human residue.
+            </p>
+        </div>
+        <div class="md:col-span-2 space-y-8">
+            <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-studioGray">03 / Overview</h2>
+            <p class="text-xs leading-relaxed text-studioGray tracking-wide">
+                Completing a Doctor of Medicine (M.D.) degree in Poland (2024), Alton weaves an interdisciplinary sensitivity to structural pathways and embodied visual flux into modern painterly abstraction.
+            </p>
+            <div class="text-xs">
+                <h4 class="font-bold tracking-wider uppercase mb-2">Selected Biography</h4>
+                <p class="text-studioGray">M.D. Medical University of Lodz, Poland (2018-2024)<br>Group Exhibition: Otwarta Wystawa, Book Art Museum, Łódź (2020)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CONTACT -->
+    <section id="contact" class="py-16 bg-studioLight text-center px-6 border-t border-gray-200">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-sm font-bold tracking-[0.3em] uppercase text-studioGray mb-6">04 / Contact</h2>
+            <p class="text-md tracking-widest mb-1"><a href="mailto:altonajaymathew00@gmail.com">altonajaymathew00@gmail.com</a></p>
+            <p class="text-xs text-studioGray uppercase tracking-widest">Chennai, India • <a href="tel:+916374997257">+91 6374997257</a></p>
+        </div>
+    </section>
+
+    <!-- ENGINE CODE FOR SLIDE CONVERSION ON-THE-FLY -->
+    <script>
+        const pdfUrl = 'portfolio.pdf'; // Source file pointing to your converted document[cite: 1]
+        const container = document.getElementById('slide-gallery-container');
+        const loader = document.getElementById('loading-studio');
+
+        pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+            loader.style.display = 'none'; // Hide loader once file is processed
+
+            // Loop through each presentation page sequentially
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                pdf.getPage(pageNum).then(page => {
+                    const viewport = page.getViewport({ scale: 2.0 }); // High-DPI crisp setting
+                    
+                    // Build structural wrapper layout
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex flex-col border border-gray-100 bg-white p-4 rounded-sm shadow-sm';
+                    
+                    const canvas = document.createElement('canvas');
+                    canvas.className = 'slide-canvas mb-2';
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    wrapper.appendChild(canvas);
+                    container.appendChild(wrapper);
+
+                    // Execute instant background pixel rendering
+                    page.render({ canvasContext: context, viewport: viewport });
+                });
+            }
+        }).catch(err => {
+            loader.innerText = "Error pulling portfolio data. Ensure your file is saved as 'portfolio.pdf' in the same directory.";
+            console.error(err);
+        });
+
+        function verifyAccessCode() {
+            if(document.getElementById('viewing-password').value.trim().toUpperCase() === 'STUDIO2026') {
+                document.getElementById('gate-container').classList.add('hidden');
+                document.getElementById('secret-gallery').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
